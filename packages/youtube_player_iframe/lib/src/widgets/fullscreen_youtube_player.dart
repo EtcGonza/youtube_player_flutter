@@ -111,17 +111,11 @@ class _FullscreenYoutubePlayerState extends State<FullscreenYoutubePlayer> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        Navigator.pop(context, await _controller.currentTime);
-        return false;
-      },
-      child: YoutubePlayer(
-        controller: _controller,
-        aspectRatio: MediaQuery.of(context).size.aspectRatio,
-        backgroundColor: widget.backgroundColor,
-        gestureRecognizers: widget.gestureRecognizers,
-      ),
+    return YoutubePlayer(
+      controller: _controller,
+      aspectRatio: MediaQuery.of(context).size.aspectRatio,
+      backgroundColor: widget.backgroundColor,
+      gestureRecognizers: widget.gestureRecognizers,
     );
   }
 
